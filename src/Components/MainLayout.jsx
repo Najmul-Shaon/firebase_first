@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import auth from "./Firebase/FIrebase.init";
 
 const MainLayout = () => {
@@ -13,10 +13,17 @@ const MainLayout = () => {
       });
   };
 
+  const handleGoogleSignOut = () => {
+    signOut(auth).then(() => {
+      console.log();
+    });
+  };
+
   return (
     <div>
       <h3>Main</h3>
       <button onClick={handleGoogleSignIn}>Google</button>
+      <button onClick={handleGoogleSignOut}>Google Out</button>
     </div>
   );
 };
